@@ -1,0 +1,67 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    box-sizing: inherit;
+}
+
+html {
+    /* 62.5 is 16px */
+    font-size: 62.5%; //1rem =10px; 10px/16px = 62.5
+
+    // @media (max-width: 600) {
+    //     font-size: 50%;;
+    // }
+
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    //phone here is same as tab-port because 50% means equal to or less than
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+
+    @include respond(tab-land) {
+        // width <= 1200?
+        font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {
+        //width <= 900?
+        font-size: 50%; //1rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12px, 12/16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        //width <= 900?
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+// body {
+//     font-family: "Lato", sans-serif;
+//     font-weight: 400;
+//     /* font-size: 16px; */
+//     line-height: 1.7;
+//     // color: #777;
+//     color: $color-grey-dark;
+
+//     /* padding: 30px; */
+//     padding: 3rem;
+//     box-sizing: border-box;
+// }
